@@ -14,7 +14,7 @@ def main():
     y = to_categorical(y)
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, seed=1)
-
+    print (y_train)
     # MLP
     clf = MultilayerPerceptron(n_hidden=16,
         n_iterations=1000,
@@ -23,7 +23,7 @@ def main():
     clf.fit(X_train, y_train)
     y_pred = np.argmax(clf.predict(X_test), axis=1)
     y_test = np.argmax(y_test, axis=1)
-
+    print (y_pred)
     accuracy = accuracy_score(y_test, y_pred)
     print ("Accuracy:", accuracy)
 
